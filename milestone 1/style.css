@@ -2,6 +2,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.debug{
+  border: 1px dashed blue;
+}
+
+.description-text, .row .col .description-text, .chat-name .description-text{
+  font-size: 12px;
+  color: #bbc2cd;
+  padding-top: 0;
+}
+
+.hour-minutes{
+
 }
 
 /* d-flex classes */
@@ -16,6 +31,10 @@
 
 .justify-content-start{
   justify-content: flex-start;
+}
+
+.justify-content-center{
+  justify-content: center;
 }
 
 .justify-content-end{
@@ -43,19 +62,143 @@
 }
 
 /** body */
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+}
+
+.fa-solid{
+  color: #B1B1B1;
+}
+
 .container{
-  width: 75%;
+  width: 90%;
 }
 
-/* tutte le chat */
-.all-chat{
-  width: 25%;
+.row-container{
+  display: flex;
+  width: 100%;
 }
 
-/* chat attuale */
+.image-profile{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.personal-profile, .notification-row{
+  height: 60px;
+  /* width: 430px; */
+}
+
+.personal-profile{
+border-right: 2px #B1B1B1 solid;
+}
+
+.personal-profile *, .notification-row, .notification-row *{
+  padding: 5px;
+}
+
+.personal-profile{
+  background-color: #EAEAEA;
+}
+
+.notification-row .col .name, .current-chat .row .name, .chat-name .name{
+  padding-bottom: 0;
+}
+
+.underlined-text{
+  text-decoration: underline;
+  padding-top: 0;
+  color: #779AA1;
+  font-size: small;
+}
+
+/* .current-chat{
+  width: 780px;
+  height: 60px;
+} */
+
+/* * tutte le chat */
+.all-chats{
+  width: 40%;
+  /* provvisorio*/
+  /* width: 460px;  */
+}
+
+.fa-bell-slash{
+  color: #8EDAFC;
+  background-color: #F2FBFF;
+  border-radius: 50%;
+  font-size: x-large;
+  margin-left: 5px;
+  padding: 9px;
+}
+
+.notification-row{
+  background-color: #8EDAFC;
+}
+
+.search-bar-row{
+  background-color: #FAFAFA;
+  height: 55px;
+}
+
+.search-bar{
+  padding: 7px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 95%;
+}
+
+.search-bar input{
+  width: 260px;
+  border-radius: 5px;
+  border: none;
+}
+
+.active-chat{
+  background-color: #E9EBEB;
+}
+
+.chat-name{
+  height: 65px;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.chat-name *{
+  padding: 5px;
+}
+
+.chat-name img, .chat-name .row{
+  padding: 0;
+}
+
+.chat-description{
+  width: 270px;
+  justify-content: space-between;
+}
+
+/* * chat attuale */
 .current-chat{
-  width: 75%;
+  width: 60%;
+  /* provvisorio*/
+  /* width: 1380px; */
+  
+}
 
+.current-chat .row{
+  width: 100%;
+}
+
+.current-chat .row *{
+  padding: 5px;
+}
+
+.fa-face-smile, .fa-microphone{
+  color: #6B7376;
 }
 
 
