@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'/>
+  <link rel="stylesheet" href="style.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.js' integrity='sha512-2zwx0mkoR2cxZY0humPK79YhJYgoX5lT+WNqkgTcV7qhVm3+msjlmOgoXnN1cW2r9qqbZez3XhnLZsyW3k8Wtg==' crossorigin='anonymous'></script>
+  <title>Boolzapp</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <!-- tutte le chat -->
+      <div class="all-chats col">
+        <!-- profilo personale -->
+        <div class="row">
+          <img src="img/avatar_io.jpg" alt="img-profile">
+          <div class="name">Sofia</div>
+          <i class="fa-solid fa-circle-notch"></i>
+          <i class="fa-solid fa-message"></i>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <!-- notifiche -->
+        <div class="row">
+          <!-- icona campanella -->
+          <i class="fa-solid fa-bell-slash"></i>
+          <div class="name">Ricevi notifiche di nuovi messaggi</div>
+          <div class="underlined-text">Attiva notifiche desktop</div>
+        </div>
+        <!-- barra di ricerca -->
+        <div class="row">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="search-bar" placeholder="Cerca o inizia una nuova chat">
+        </div>
+        <!-- chat con altri utenti -->
+        <div class="row chat-name">
+          <div class="col">
+            <img src="img/avatar_1.jpg" alt="img-profile-friend">
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="name">Michele</div>
+              <div class="description-text">12:00</div>
+            </div>
+            <div class="row">
+              <div class="description-text">Ultimo messaggio inviato</div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <!-- chat attuale -->
+      <div class="current-chat col">
+        <div class="row">
+          <div class="row">
+            <img src="img/avatar_1.jpg" alt="img-current-chat">
+            <div class="col">
+              <div class="name">Michele</div>
+              <div class="description-text">Ultimo accesso oggi alle 12:00</div>
+            </div>
+          </div>
+          <div class="row">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
+        <div class="container-chat">
+          <div class="message-sent col">
+            <div class="name row">Hai portato a spasso il cane?</div> <!-- oppure text-start al posto di flex -->
+            <div class="description-text row">15:30</div> <!-- oppure text-end al posto di flex -->
+          </div>
+          <div class="message-sent col">
+            <div class="name row">Ricordati di stendere i panni</div> <!-- oppure text-start al posto di flex -->
+            <div class="description-text row">15:50</div> <!-- oppure text-end al posto di flex -->
+          </div>
+          <div class="message-received col">
+            <div class="name row">Tutto fatto!</div> <!-- oppure text-start al posto di flex -->
+            <div class="description-text row">16:15</div> <!-- oppure text-end al posto di flex -->
+          </div>
+        </div>
+        <div class="row">
+          <i class="fa-regular fa-face-smile"></i>
+          <input type="text" class="message-input" placeholder="Scrivi un messaggio">
+          <i class="fa-solid fa-microphone"></i>
+        </div>
+  
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

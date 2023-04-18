@@ -1,0 +1,101 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* d-flex classes */
+.d-flex, .row{
+  display: flex;
+}
+
+.flex-column, .col{
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-content-start{
+  justify-content: flex-start;
+}
+
+.justify-content-end{
+  justify-content: flex-end;
+}
+
+.justify-content-between{
+  justify-content: space-between;
+}
+
+.justify-content-around{
+  justify-content: space-between;
+}
+
+.align-items-start{
+  align-items: flex-start;
+}
+
+.align-items-center{
+  align-items: center;
+}
+
+.align-items-end{
+  align-items: flex-end;
+}
+
+/** body */
+.container{
+  width: 75%;
+}
+
+/* tutte le chat */
+.all-chat{
+  width: 25%;
+}
+
+/* chat attuale */
+.current-chat{
+  width: 75%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
