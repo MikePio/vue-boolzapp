@@ -51,7 +51,7 @@
 
           
           <!-- users test -->
-        <div v-for="chat in chats" class="row chat-name">
+        <div v-for="(chat, index) in chats" :class="{'active-chat': chat.activeChat}" @click="chat.activeChat = !chat.activeChat" class="row chat-name">
           <div class="col">
             <img class="image-profile" :src="`img/${chat.img}.jpg`" alt="img-profile-friend">
           </div>
