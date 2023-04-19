@@ -69,7 +69,7 @@
             </div>
             
             <div class="col">
-              <div class="description-text hour-minutes">12:00</div>
+              <div class="description-text hour-minutes">{{chat.messages[chat.messages.length - 1].date}}</div>
             </div>
 
           </div>
@@ -85,17 +85,12 @@
       <!-- chat attuale -->
       <div class="current-chat col ">
         <!-- BARRA SUPERIORE con nome della chat attuale -->
-        <!-- <div v-for="(chat, index) in chats"  class="row main-chat d-flex justify-content-between"> -->
         <div class="row main-chat d-flex justify-content-between">
           <div class="row">
-            <!-- <img class="image-profile" :src="`img/avatar_${chat.img[index]}.jpg`" alt="img-current-chat"> -->
-            <!-- <img class="image-profile" :src="`img/avatar_${chat.img}.jpg`" alt="img-current-chat"> -->
-            <img class="image-profile" :src="`img/avatar_1.jpg`" alt="img-current-chat">
+            <img class="image-profile" :src="`img/avatar_${chats[chatActive].img}.jpg`" alt="img-current-chat">
             <div class="col">
-              <div class="name">Michele</div>
-              <!-- <div class="name">{{chat.name}}</div> -->
-              <!-- <div class="name">{{chat.name[index]}}</div> -->
-              <div class="description-text">Ultimo accesso oggi alle 12:00</div>
+              <div class="name">{{chats[chatActive].name}}</div>
+              <div class="description-text">Ultimo accesso oggi alle {{chats[chatActive].messages[chats[chatActive].messages.length - 1].date}}</div>
             </div>
           </div>
           <div class="row d-flex justify-content-end align-items-center">
