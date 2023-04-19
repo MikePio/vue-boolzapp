@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'/>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.js' integrity='sha512-2zwx0mkoR2cxZY0humPK79YhJYgoX5lT+WNqkgTcV7qhVm3+msjlmOgoXnN1cW2r9qqbZez3XhnLZsyW3k8Wtg==' crossorigin='anonymous'></script>
+  <title>Boolzapp</title>
+</head>
+<body>
+
+  <div id="app">
+
+  <div class="container ">
+    <div class="row-container ">
+      <!-- tutte le chat -->
+      <div class="all-chats col ">
+        <!-- profilo personale -->
+        <div class="row justify-content-between personal-profile">
+          <div class="row align-items-center">
+            <img class="image-profile" src="img/avatar_io.jpg" alt="img-profile">
+            <div class="name">Sofia</div>
+          </div>
+          <div class="row align-items-center">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
+        <!-- notifiche -->
+        <div class="row align-items-center notification-row">
+          <!-- icona campanella -->
+          <i class="fa-solid fa-bell-slash"></i>
+          <div class="col">
+            <div class="name">Ricevi notifiche di nuovi messaggi</div>
+            <div class="underlined-text">Attiva notifiche desktop</div>
+          </div>
+        </div>
+        <!-- barra di ricerca -->
+        <div class="row align-items-center justify-content-center search-bar-row">
+          <div class="row align-items-center search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="search-bar" placeholder="Cerca o inizia una nuova chat">
+          </div>
+        </div>
+
+        <!-- chat con altri utenti -->
+        <div class="col container-chats">
+
+          
+          <!-- users -->
+        <div v-for="(chat, index) in chats" :class="{'active-chat': chatActive == index}" @click="classActive(index)" class="row chat-name">
+          <div class="col">
+            <img class="image-profile" :src="`img/avatar_${chat.img}.jpg`" alt="img-profile-friend">
+          </div>
+
+            <div class="row justify-content-between chat-description-row">
+
+            <div class="col">
+              <div class="row chat-description">
+                <div class="name">{{chat.name}}</div>
+              </div>
+              <div class="row">
+                <div class="description-text">{{chat.messages[chat.messages.length - 1].message}}</div>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="description-text hour-minutes">{{chat.messages[chat.messages.length - 1].date}}</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- / container-chats -->
+      </div> 
+        
+
+      </div>
+
+      <!-- chat attuale -->
+      <div class="current-chat col ">
+        <!-- BARRA SUPERIORE con nome della chat attuale -->
+        <div class="row main-chat d-flex justify-content-between">
+          <div class="row">
+            <img class="image-profile" :src="`img/avatar_${chats[chatActive].img}.jpg`" alt="img-current-chat">
+            <div class="col">
+              <div class="name">{{chats[chatActive].name}}</div>
+              <div class="description-text">Ultimo accesso oggi alle {{chats[chatActive].messages[chats[chatActive].messages.length - 1].date}}</div>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-end align-items-center">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
+        <!-- container-chat con messaggi -->
+        <!-- <div class="col messages-container"> -->
+
+          <div class="container-chat flex-column">
+            
+            <!-- messaggi nella chat -->
+            <div v-for="message in chats[chatActive].messages" :class="[message.status == 'received' ? 'message-received' : 'message-sent']" class="col justify-content-between">
+            <div class="name row">{{message.message}}</div>
+            <div class="col align-items-end">
+              <div class="description-text hour-minutes">{{message.date}}</div>
+            </div>
+          </div>
+
+        </div>
+
+      <!-- /messages-container -->
+      <!-- </div> -->
+        <!-- message-input -->
+        <div class="row message-input-row d-flex justify-content-around">
+          <i class="fa-regular fa-face-smile"></i>
+          <input v-model="writtenMessage" @keyup.enter="sendMessage" type="text" class="message-input" placeholder="Scrivi un messaggio">
+          <i class="fa-solid fa-microphone"></i>
+        </div>
+  
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
