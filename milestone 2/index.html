@@ -50,10 +50,10 @@
         <div class="col container-chats">
 
           
-          <!-- users test -->
-        <div v-for="(chat, index) in chats" :class="{'active-chat': chat.activeChat}" @click="chat.activeChat = !chat.activeChat" class="row chat-name">
+          <!-- users -->
+        <div v-for="(chat, index) in chats" :class="{'active-chat': chatActive == index}" @click="classActive(index)" class="row chat-name">
           <div class="col">
-            <img class="image-profile" :src="`img/${chat.img}.jpg`" alt="img-profile-friend">
+            <img class="image-profile" :src="`img/avatar_${chat.img}.jpg`" alt="img-profile-friend">
           </div>
 
           <!-- <div class="row justify-content-between chat-description-row"> -->
@@ -76,232 +76,6 @@
 
         </div>
 
-        <!-- user 1 -->
-        <div class="row chat-name active-chat">
-          <div class="col">
-            <img class="image-profile" src="img/avatar_1.jpg" alt="img-profile-friend">
-          </div>
-          
-          <div class="row justify-content-between chat-description-row">
-
-            <div class="col">
-              <div class="row chat-description">
-                <div class="name">Michele</div>
-              </div>
-              <div class="row">
-                <div class="description-text">Ultimo messaggio inviato</div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="description-text hour-minutes">12:00</div>
-            </div>
-
-          </div>
-
-        </div>
-        
-        <!-- user 2 -->
-        <div class="row chat-name ">
-          <div class="col">
-            <img class="image-profile" src="img/avatar_2.jpg" alt="img-profile-friend">
-          </div>
-
-          <div class="row justify-content-between chat-description-row">
-
-            <div class="col">
-              <div class="row chat-description">
-                <div class="name">Fabio</div>
-              </div>
-              <div class="row">
-                <div class="description-text">Ultimo messaggio inviato</div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="description-text hour-minutes">12:00</div>
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- user 3 -->
-        <div class="row chat-name ">
-          <div class="col">
-            <img class="image-profile" src="img/avatar_3.jpg" alt="img-profile-friend">
-          </div>
-
-          <div class="row justify-content-between chat-description-row">
-
-            <div class="col">
-              <div class="row chat-description">
-                <div class="name">Luca</div>
-              </div>
-              <div class="row">
-                <div class="description-text">Ultimo messaggio inviato</div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="description-text hour-minutes">12:00</div>
-            </div>
-
-          </div>
-          
-        </div>
-
-        <!-- user 4 -->
-        <div class="row chat-name ">
-          <div class="col">
-            <img class="image-profile" src="img/avatar_4.jpg" alt="img-profile-friend">
-          </div>
-          
-          <div class="row justify-content-between chat-description-row">
-            
-            <div class="col">
-              <div class="row chat-description">
-                <div class="name">Franco</div>
-              </div>
-              <div class="row">
-                <div class="description-text">Ultimo messaggio inviato</div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="description-text hour-minutes">12:00</div>
-            </div>
-            
-          </div>
-
-        </div>
-
-        <!-- user 5 -->
-        <div class="row chat-name ">
-          <div class="col">
-            <img class="image-profile" src="img/avatar_5.jpg" alt="img-profile-friend">
-          </div>
-
-          <div class="row justify-content-between chat-description-row">
-            
-            <div class="col">
-              <div class="row chat-description">
-                <div class="name">Dario</div>
-              </div>
-              <div class="row">
-                <div class="description-text">Ultimo messaggio inviato</div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="description-text hour-minutes">12:00</div>
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- user 6 -->
-        <div class="row chat-name ">
-          <div class="col">
-            <img class="image-profile" src="img/avatar_6.jpg" alt="img-profile-friend">
-          </div>
-
-          <div class="row justify-content-between chat-description-row">
-
-            <div class="col">
-              <div class="row chat-description">
-                <div class="name">Maria</div>
-              </div>
-              <div class="row">
-                <div class="description-text">Ultimo messaggio inviato</div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="description-text hour-minutes">12:00</div>
-            </div>
-            
-          </div>
-          
-        </div>
-        
-        <!-- user 7 -->
-        <div class="row chat-name ">
-          <div class="col">
-            <img class="image-profile" src="img/avatar_7.jpg" alt="img-profile-friend">
-          </div>
-          
-          <div class="row justify-content-between chat-description-row">
-            
-            <div class="col">
-              <div class="row chat-description">
-                <div class="name">Massimo</div>
-              </div>
-              <div class="row">
-                <div class="description-text">Ultimo messaggio inviato</div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="description-text hour-minutes">12:00</div>
-            </div>
-
-          </div>
-
-        </div>
-        
-        <!-- user 8 -->
-        <div class="row chat-name ">
-          <div class="col">
-            <img class="image-profile" src="img/avatar_8.jpg" alt="img-profile-friend">
-          </div>
-
-          <div class="row justify-content-between chat-description-row">
-
-            <div class="col">
-              <div class="row chat-description">
-                <div class="name">Luigi</div>
-              </div>
-              <div class="row">
-                <div class="description-text">Ultimo messaggio inviato</div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="description-text hour-minutes">12:00</div>
-            </div>
-            
-          </div>
-          
-        </div>
-        
-        <!-- user 9 -->
-        <div class="row chat-name ">
-          <div class="col">
-            <img class="image-profile" src="img/avatar_2.jpg" alt="img-profile-friend">
-          </div>
-
-          <div class="row justify-content-between chat-description-row">
-
-            <div class="col">
-              <div class="row chat-description">
-                <div class="name">Marco</div>
-              </div>
-              <div class="row">
-                <div class="description-text">Ultimo messaggio inviato</div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="description-text hour-minutes">12:00</div>
-            </div>
-            
-          </div>
-          
-        </div>
-
-
         <!-- / container-chats -->
       </div> 
         
@@ -311,11 +85,15 @@
       <!-- chat attuale -->
       <div class="current-chat col ">
         <!-- nome della chat attuale -->
-        <div class="row main-chat d-flex justify-content-between">
+        <div  class="row main-chat d-flex justify-content-between">
           <div class="row">
-            <img class="image-profile" src="img/avatar_1.jpg" alt="img-current-chat">
+            <!-- <img class="image-profile" :src="`img/avatar_${chat.img[index]}.jpg`" alt="img-current-chat"> -->
+            <!-- <img class="image-profile" :src="`img/avatar_${chat.img}.jpg`" alt="img-current-chat"> -->
+            <img class="image-profile" :src="`img/avatar_1.jpg`" alt="img-current-chat">
             <div class="col">
               <div class="name">Michele</div>
+              <!-- <div class="name">{{chat.name}}</div> -->
+              <!-- <div class="name">{{chat.name[index]}}</div> -->
               <div class="description-text">Ultimo accesso oggi alle 12:00</div>
             </div>
           </div>
