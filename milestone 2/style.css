@@ -24,6 +24,10 @@
 
 }
 
+.fa-ellipsis-vertical{
+  margin-right: 10px;
+}
+
 /* d-flex classes */
 .d-flex, .row{
   display: flex;
@@ -84,7 +88,15 @@ body{
 }
 
 .container{
-  width: 90%;
+  /* width: 90%; */
+  /* min-width: 900px; */
+  width: 1080px;
+}
+
+@media screen and (max-width: 1180px) {
+  .container{
+    width: 800px;
+  }
 }
 
 .row-container{

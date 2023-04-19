@@ -84,8 +84,9 @@
 
       <!-- chat attuale -->
       <div class="current-chat col ">
-        <!-- nome della chat attuale -->
-        <div  class="row main-chat d-flex justify-content-between">
+        <!-- BARRA SUPERIORE con nome della chat attuale -->
+        <!-- <div v-for="(chat, index) in chats"  class="row main-chat d-flex justify-content-between"> -->
+        <div class="row main-chat d-flex justify-content-between">
           <div class="row">
             <!-- <img class="image-profile" :src="`img/avatar_${chat.img[index]}.jpg`" alt="img-current-chat"> -->
             <!-- <img class="image-profile" :src="`img/avatar_${chat.img}.jpg`" alt="img-current-chat"> -->
@@ -108,91 +109,11 @@
 
           <div class="container-chat flex-column">
             
-            <!-- messaggio inviato -->
-            <div class="message-sent col justify-content-between">
-            <div class="name row">Hai portato a spasso il cane?</div>
+            <!-- messaggi nella chat -->
+            <div v-for="message in chats[chatActive].messages" :class="[message.status == 'received' ? 'message-received' : 'message-sent']" class="col justify-content-between">
+            <div class="name row">{{message.message}}</div>
             <div class="col align-items-end">
-              <div class="description-text hour-minutes">15:30</div>
-            </div>
-          </div>
-          <!-- messaggio inviato -->
-          <div class="message-sent col">
-            <div class="name row">Ricordati di stendere i panni</div>
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">15:30</div>
-            </div>
-          </div>
-          <!-- messaggio ricevuto -->
-          <div class="message-received col">
-            <div class="name row">Tutto fatto!</div> 
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">16:15</div>
-            </div>
-          </div>
-            
-            <!-- messaggio inviato -->
-            <div class="message-sent col justify-content-between">
-            <div class="name row">Hai portato a spasso il cane?</div>
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">15:30</div>
-            </div>
-          </div>
-          <!-- messaggio inviato -->
-          <div class="message-sent col">
-            <div class="name row">Ricordati di stendere i panni</div>
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">15:30</div>
-            </div>
-          </div>
-          <!-- messaggio ricevuto -->
-          <div class="message-received col">
-            <div class="name row">Tutto fatto!</div> 
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">16:15</div>
-            </div>
-          </div>
-            
-            <!-- messaggio inviato -->
-            <div class="message-sent col justify-content-between">
-            <div class="name row">Hai portato a spasso il cane?????????????????????????????????????????????????????????????????????????????????????????</div>
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">15:30</div>
-            </div>
-          </div>
-          <!-- messaggio inviato -->
-          <div class="message-sent col">
-            <div class="name row">Ricordati di stendere i panni ciao, ciao, ciao, ciao, ciao, ciao, ciao, ciao, ciao, ciao, ciao, ciao</div>
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">15:30</div>
-            </div>
-          </div>
-          <!-- messaggio ricevuto -->
-          <div class="message-received col">
-            <div class="name row">Tutto fatto!</div> 
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">16:15</div>
-            </div>
-          </div>
-            
-            <!-- messaggio inviato -->
-            <div class="message-sent col justify-content-between">
-            <div class="name row">Hai portato a spasso il cane?</div>
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">15:30</div>
-            </div>
-          </div>
-          <!-- messaggio inviato -->
-          <div class="message-sent col">
-            <div class="name row">Ricordati di stendere i panni</div>
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">15:30</div>
-            </div>
-          </div>
-          <!-- messaggio ricevuto -->
-          <div class="message-received col">
-            <div class="name row">Tutto fatto!</div> 
-            <div class="col align-items-end">
-              <div class="description-text hour-minutes">16:15</div>
+              <div class="description-text hour-minutes">{{message.date}}</div>
             </div>
           </div>
 
