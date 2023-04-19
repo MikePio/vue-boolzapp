@@ -11,6 +11,8 @@
 </head>
 <body>
 
+  <div id="app">
+
   <div class="container ">
     <div class="row-container ">
       <!-- tutte le chat -->
@@ -48,12 +50,39 @@
         <div class="col container-chats">
 
           
-          <!-- user 1 -->
+          <!-- users test -->
+        <!-- <div v-for="(chat, index) in chats" class="row chat-name active-chat"> -->
+        <div v-for="chat in chats" class="row chat-name active-chat">
+          <div class="col">
+            <img class="image-profile" :src="`img/${chat.img}.jpg`" alt="img-profile-friend">
+          </div>
+
+          <!-- <div class="row justify-content-between chat-description-row"> -->
+            <div class="row justify-content-between chat-description-row">
+
+            <div class="col">
+              <div class="row chat-description">
+                <div class="name">{{chat.name}}</div>
+              </div>
+              <div class="row">
+                <div class="description-text">Ultimo messaggio inviato</div>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="description-text hour-minutes">12:00</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- user 1 -->
         <div class="row chat-name active-chat">
           <div class="col">
             <img class="image-profile" src="img/avatar_1.jpg" alt="img-profile-friend">
           </div>
-
+          
           <div class="row justify-content-between chat-description-row">
 
             <div class="col">
@@ -348,14 +377,14 @@
             
             <!-- messaggio inviato -->
             <div class="message-sent col justify-content-between">
-            <div class="name row">Hai portato a spasso il cane?</div>
+            <div class="name row">Hai portato a spasso il cane?????????????????????????????????????????????????????????????????????????????????????????</div>
             <div class="col align-items-end">
               <div class="description-text hour-minutes">15:30</div>
             </div>
           </div>
           <!-- messaggio inviato -->
           <div class="message-sent col">
-            <div class="name row">Ricordati di stendere i panni</div>
+            <div class="name row">Ricordati di stendere i panni ciao, ciao, ciao, ciao, ciao, ciao, ciao, ciao, ciao, ciao, ciao, ciao</div>
             <div class="col align-items-end">
               <div class="description-text hour-minutes">15:30</div>
             </div>
@@ -412,6 +441,9 @@
 
 
   </div>
+
+</div>
+
   <script src="script.js"></script>
 </body>
 </html>

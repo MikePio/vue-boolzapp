@@ -73,6 +73,8 @@ body{
   align-items: center;
   height: 100vh;
   padding: 5%;
+  background: rgb(0,150,136);
+  background: linear-gradient(180deg, rgba(0,150,136,1) 18%, rgba(217,219,211,1) 18%);
 }
 
 .fa-solid, .fa-regular{
@@ -231,23 +233,30 @@ body{
   background-color: #D5F9BA;
   font-size: 13.5px;
   width: 37%;
+  /* width: 350px; */
+  /* max-width: 350px; */
   padding: 10px;
   margin: 10px;
   display: flex;
   align-self: self-end;
   border-radius: 5px;
+  /* inline-size: 37%; */
+  /* inline-size: 150px; */
+  overflow-wrap: anywhere;
 }
 
 .message-received{
   background-color: white;
   font-size: 13.5px;
-  width: 37%;
+  /* width: 37%; */
+  max-width: 37%;
   padding: 10px;
   margin: 10px;
   display: flex;
   border-radius: 5px;
   /* flex start è imposto di default*/
   /* align-self: self-start; */
+  overflow-wrap: anywhere;
 }
 
 .message-input-row{
