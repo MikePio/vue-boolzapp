@@ -42,7 +42,7 @@
         <div class="row align-items-center justify-content-center search-bar-row">
           <div class="row align-items-center search-bar">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input class="search-bar" placeholder="Cerca o inizia una nuova chat">
+            <input v-model="searchString" @keyup.enter="findChat" class="search-bar" placeholder="Cerca o inizia una nuova chat">
           </div>
         </div>
 
@@ -77,9 +77,8 @@
 
         <!-- / container-chats -->
       </div> 
-        
-
-      </div>
+      
+    </div>
 
       <!-- chat attuale -->
       <div class="current-chat col ">
