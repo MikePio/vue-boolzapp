@@ -285,14 +285,12 @@ createApp({
       for (const index in this.chats) {
         // Tutti i nomi
         // console.log(this.chats[index].name);
-        if(this.chats[index].name.includes(this.searchString)){
-            console.log('funziona');
-            console.log(this.searchString); //lettere
+        if(!(this.chats[index].name.includes(this.searchString))){
             console.log(this.chats[index].name); //nome/i
+            const nameUser = document.getElementsByClassName("name-chat-js");
+            nameUser[index].classList.add("d-none");
             
           }
-
-
 
       }
     
