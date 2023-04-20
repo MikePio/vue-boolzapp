@@ -228,6 +228,15 @@ createApp({
       this.chatActive = index;
     },
 
+    //* DA MIGLIORARE
+    getTime() {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const hoursMinutes = `${hours}:${minutes}`;
+      return hoursMinutes;
+    },
+
     sendMessage(){
       // console.log('writtenMessage', this.writtenMessage)
       // writtenMessage senza spazi
@@ -239,7 +248,8 @@ createApp({
         const newMessage = {
           message: writtenMessageTrim,
           status: 'sent',
-          date: '00:51'
+          // date: '00:51'
+          date: this.getTime()
         }
         //pushare l'oggetto prima nell'array di oggetti di chats con l'indice (chatActive) e successivamente nell'array di oggetti di messages
         this.chats[this.chatActive].messages.push(newMessage);
