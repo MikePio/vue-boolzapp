@@ -228,7 +228,6 @@ createApp({
       this.chatActive = index;
     },
 
-    //* DA MIGLIORARE
     getTime() {
       const now = new Date();
       const hours = now.getHours();
@@ -251,10 +250,31 @@ createApp({
           // date: '00:51'
           date: this.getTime()
         }
+        const replyMessage = {
+          message: 'Ok a dopo',
+          status: 'received',
+          date: this.getTime()
+        }
         //pushare l'oggetto prima nell'array di oggetti di chats con l'indice (chatActive) e successivamente nell'array di oggetti di messages
         this.chats[this.chatActive].messages.push(newMessage);
         //reset dell'input
         this.writtenMessage = '';
+        
+        //(Messaggio ricevuto istantaneamente) pushare l'oggetto prima nell'array di oggetti di chats con l'indice (chatActive) e successivamente nell'array di oggetti di messages
+        // this.chats[this.chatActive].messages.push(replyMessage);
+        
+        //*soluzione 1
+        //(Messaggio ricevuto dopo 1 sec) Bisogna salvare prima il valore di this in una const e pusharlo successivamente
+        // const replyMessagePushed = this.chats[this.chatActive].messages;
+        // setTimeout(function() {
+          //   replyMessagePushed.push(replyMessage);
+          // }, 1000);
+          
+        //*soluzione 2 MIGLIORE
+        //Messaggio ricevuto dopo 1 sec con arrow function che non modificano il valore di this e quindi non c'è bisogno di salvarlo in una variabile
+        setTimeout(() => {
+          this.chats[this.chatActive].messages.push(replyMessage);
+        }, 1000);
       }
     }
 
