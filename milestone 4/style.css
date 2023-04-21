@@ -58,15 +58,15 @@
   justify-content: space-between;
 }
 
-.align-items-start{
+.align-items-start {
   align-items: flex-start;
 }
 
-.align-items-center{
+.align-items-center {
   align-items: center;
 }
 
-.align-items-end{
+.align-items-end {
   align-items: flex-end;
 }
 
@@ -222,6 +222,7 @@ body{
 .current-chat{
   width: 60%;
   background-image: url("img/mine.jpg");
+  height: 690px;
   /* provvisorio*/
   /* width: 1380px; */
   /* max-height: 690px; */

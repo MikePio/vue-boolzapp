@@ -279,7 +279,8 @@ createApp({
       }
     },
 
-    findChat(){
+    //* RICERCA IN CHAT Soluzione 1
+    findChat() {
       // se le lettere ricercate sono incluse nell'array di oggetti (chats-->name)
       // se le lettere ricercate  NON ! sono incluse nell'array di oggetti (chats-->name) cambiare visible: true, in visible: false,
       for (const index in this.chats) {
@@ -289,13 +290,27 @@ createApp({
             console.log(this.chats[index].name); //nome/i
             const nameUser = document.getElementsByClassName("name-chat-js");
             nameUser[index].classList.add("d-none");
+
             
           }
+        }
 
-      }
-    
+        //oppure con filter
+        // this.chats.forEach(chat => {
+        //   chat.visible (this.chats[index].name.toUpperCase().includes(this.searchString.toUpperCase()))
+          
+        // });
+
+          
     }
 
+  },
+
+  //* RICERCA IN CHAT Soluzione 2 MIGLIORE
+  computed:{
+    visibleChats(){
+      return this.chats.filter(chat => chat.name.toUpperCase().includes(this.searchString.toUpperCase()));
+    }
   }
 
 }).mount('#app');

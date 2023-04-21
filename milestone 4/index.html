@@ -12,7 +12,6 @@
 <body>
 
   <div id="app">
-
   <div class="container ">
     <div class="row-container ">
       <!-- tutte le chat -->
@@ -42,16 +41,22 @@
         <div class="row align-items-center justify-content-center search-bar-row">
           <div class="row align-items-center search-bar">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input v-model="searchString" @keyup.enter="findChat" class="search-bar" placeholder="Cerca o inizia una nuova chat">
+            <!-- RICERCA IN CHAT Soluzione 1 -->
+            <!-- <input v-model="searchString" @keyup.enter="findChat" class="search-bar" placeholder="Cerca o inizia una nuova chat"> -->
+            <!-- RICERCA IN CHAT Soluzione 2 MIGLIORE -->
+            <input v-model="searchString" class="search-bar" placeholder="Cerca o inizia una nuova chat">
           </div>
         </div>
-
+        
         <!-- chat con altri utenti -->
         <div class="col container-chats">
-
+          
           
           <!-- users -->
-        <div v-for="(chat, index) in chats" :class="{'active-chat': chatActive == index}" @click="classActive(index)" class="row chat-name name-chat-js">
+          <!-- RICERCA IN CHAT Soluzione 1 -->
+          <!-- <div v-for="(chat, index) in chats" :class="{'active-chat': chatActive == index}" @click="classActive(index)" class="row chat-name name-chat-js"> -->
+            <!-- RICERCA IN CHAT Soluzione 2 MIGLIORE -->
+        <div v-for="(chat, index) in visibleChats" :class="{'active-chat': chatActive == index}" @click="classActive(index)" class="row chat-name name-chat-js">
           <div class="col">
             <img class="image-profile" :src="`img/avatar_${chat.img}.jpg`" alt="img-profile-friend">
           </div>
