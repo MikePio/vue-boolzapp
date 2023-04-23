@@ -256,6 +256,21 @@ createApp({
           status: 'received',
           date: this.getTime()
         }
+        const replyMessageCiao = {
+          message: 'Ciaoo',
+          status: 'received',
+          date: this.getTime()
+        }
+        const replyMessageComeVa = {
+          message: 'Bene grazie. Tu?',
+          status: 'received',
+          date: this.getTime()
+        }
+        const replyMessageCheFai = {
+          message: 'Niente. Tu?',
+          status: 'received',
+          date: this.getTime()
+        }
         //pushare l'oggetto prima nell'array di oggetti di chats con l'indice (chatActive) e successivamente nell'array di oggetti di messages
         this.chats[this.chatActive].messages.push(newMessage);
         //reset dell'input
@@ -271,10 +286,23 @@ createApp({
           //   replyMessagePushed.push(replyMessage);
           // }, 1000);
           
-        //*soluzione 2 MIGLIORE
-        //Messaggio ricevuto dopo 1 sec con arrow function che non modificano il valore di this e quindi non c'è bisogno di salvarlo in una variabile
-        setTimeout(() => {
-          this.chats[this.chatActive].messages.push(replyMessage);
+          //*soluzione 2 MIGLIORE
+          //Messaggio ricevuto dopo 1 sec con arrow function che non modificano il valore di this e quindi non c'è bisogno di salvarlo in una variabile
+          setTimeout(() => {
+          // soluzione semplice SOLO CON RISPOSTA A DOPO
+          // this.chats[this.chatActive].messages.push(replyMessage);
+          
+          // soluzione 1 le parole scritte devono essere UGUALI a quelle scritte qui in basso
+          // if (writtenMessageTrim == 'ciao' || 'Ciao' || 'Wee' || 'wee' || 'we' || 'We' || 'ehi' || 'Ehi' || 'Hey' || 'hey' || 'Heyy' || 'heyy') this.chats[this.chatActive].messages.push(replyMessageCiao);
+          // else if (writtenMessageTrim == 'come va' || 'Come va' || 'come stai' || 'Come stai' || 'come va?' || 'Come va?' || 'come stai?' || 'Come stai?') this.chats[this.chatActive].messages.push(replyMessageComeVa);
+          // else if (writtenMessageTrim == 'che fai' || 'Che fai' || 'che fai?' || 'Che fai?') this.chats[this.chatActive].messages.push(replyMessageCheFai);
+          // else this.chats[this.chatActive].messages.push(replyMessage);
+          
+          // soluzione 2 migliore le parole scritte possono essere INCLUSE a quelle scritte qui in basso
+          if (writtenMessageTrim.includes('ciao') || writtenMessageTrim.includes('Ciao') || writtenMessageTrim.includes('Wee') || writtenMessageTrim.includes('wee') || writtenMessageTrim.includes('we') || writtenMessageTrim.includes('We') || writtenMessageTrim.includes('ehi') || writtenMessageTrim.includes('Ehi') || writtenMessageTrim.includes('Hey') || writtenMessageTrim.includes('hey') || writtenMessageTrim.includes('Heyy') || writtenMessageTrim.includes('heyy')) this.chats[this.chatActive].messages.push(replyMessageCiao);
+          else if (writtenMessageTrim.includes('come va') || writtenMessageTrim.includes('Come va') || writtenMessageTrim.includes('come stai') || writtenMessageTrim.includes('Come stai') || writtenMessageTrim.includes('come va?') || writtenMessageTrim.includes('Come va?') || writtenMessageTrim.includes('come stai?') || writtenMessageTrim.includes('Come stai?')) this.chats[this.chatActive].messages.push(replyMessageComeVa);
+          else if (writtenMessageTrim.includes('che fai') || writtenMessageTrim.includes('Che fai') || writtenMessageTrim.includes('che fai?') || writtenMessageTrim.includes('Che fai?')) this.chats[this.chatActive].messages.push(replyMessageCheFai);
+          else this.chats[this.chatActive].messages.push(replyMessage);
         }, 1000);
       }
     },
