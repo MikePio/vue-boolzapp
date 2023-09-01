@@ -104,7 +104,7 @@
         </div>
         
         <!-- container-chat con messaggi -->
-          <div class="container-chat flex-column">
+          <div class="container-chat flex-column" ref="chatContainer">
             
             <!-- messaggi nella chat -->
             <div v-for="message in chats[chatActive].messages" :class="[message.status == 'received' ? 'message-received' : 'message-sent']" class="col justify-content-between">

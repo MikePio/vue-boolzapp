@@ -237,6 +237,22 @@ createApp({
       return hoursMinutes;
     },
 
+    scrollToBottom() {
+      setTimeout(() => {
+        // Scroll automatico verso il basso
+        this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
+        console.log('a capo');
+      }, 200);
+    },
+
+    scrollToBottomSlow() {
+      setTimeout(() => {
+        // Scroll automatico verso il basso
+        this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
+        console.log('a capo lento');
+      }, 1200);
+    },
+
     sendMessage(){
       // console.log('writtenMessage', this.writtenMessage)
       // writtenMessage senza spazi
@@ -271,11 +287,17 @@ createApp({
           status: 'received',
           date: this.getTime()
         }
+
+        //necessario il setTimeout perché deve comparire il messaggio dell'utente per primo e successivamente quello del bot (senza il setTimeout ci sono problemi dal momento in cui dovessero essere generati tanti messaggi in chat da fa comparire l'overflow e viene mostrato il mio messaggio un secondo dopo che io ho inviato un messaggio dall'input e compare nello stesso momento in cui compare la risposta del bot)
+        setTimeout(() => {
         //pushare l'oggetto prima nell'array di oggetti di chats con l'indice (chatActive) e successivamente nell'array di oggetti di messages
         this.chats[this.chatActive].messages.push(newMessage);
         //reset dell'input
         this.writtenMessage = '';
-        
+        }, 100);
+
+        // Scroll automatico verso il basso
+        this.scrollToBottom();
         //(Messaggio ricevuto istantaneamente) pushare l'oggetto prima nell'array di oggetti di chats con l'indice (chatActive) e successivamente nell'array di oggetti di messages
         // this.chats[this.chatActive].messages.push(replyMessage);
         
@@ -285,10 +307,10 @@ createApp({
         // setTimeout(function() {
           //   replyMessagePushed.push(replyMessage);
           // }, 1000);
-          
-          //*soluzione 2 MIGLIORE
-          //Messaggio ricevuto dopo 1 sec con arrow function che non modificano il valore di this e quindi non c'è bisogno di salvarlo in una variabile
-          setTimeout(() => {
+
+        //*soluzione 2 MIGLIORE
+        //Messaggio ricevuto dopo 1 sec con arrow function che non modificano il valore di this e quindi non c'è bisogno di salvarlo in una variabile
+        setTimeout(() => {
           // soluzione semplice SOLO CON RISPOSTA A DOPO
           // this.chats[this.chatActive].messages.push(replyMessage);
           
@@ -303,7 +325,9 @@ createApp({
           else if (writtenMessageTrim.includes('come va') || writtenMessageTrim.includes('Come va') || writtenMessageTrim.includes('come stai') || writtenMessageTrim.includes('Come stai') || writtenMessageTrim.includes('come va?') || writtenMessageTrim.includes('Come va?') || writtenMessageTrim.includes('come stai?') || writtenMessageTrim.includes('Come stai?')) this.chats[this.chatActive].messages.push(replyMessageComeVa);
           else if (writtenMessageTrim.includes('che fai') || writtenMessageTrim.includes('Che fai') || writtenMessageTrim.includes('che fai?') || writtenMessageTrim.includes('Che fai?')) this.chats[this.chatActive].messages.push(replyMessageCheFai);
           else this.chats[this.chatActive].messages.push(replyMessage);
-        }, 1000);
+        }, 1100);
+        // Scroll automatico verso il basso
+        this.scrollToBottomSlow();
       }
     },
 
