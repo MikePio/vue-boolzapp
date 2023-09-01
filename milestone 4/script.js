@@ -242,7 +242,7 @@ createApp({
         // Scroll automatico verso il basso
         this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
         console.log('a capo');
-      }, 200);
+      }, 100);
     },
 
     scrollToBottomSlow() {
@@ -250,7 +250,7 @@ createApp({
         // Scroll automatico verso il basso
         this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
         console.log('a capo lento');
-      }, 1200);
+      }, 1100);
     },
 
     sendMessage(){
@@ -294,7 +294,8 @@ createApp({
         this.chats[this.chatActive].messages.push(newMessage);
         //reset dell'input
         this.writtenMessage = '';
-        }, 100);
+        // }, 100);
+        }, 0);
 
         // Scroll automatico verso il basso
         this.scrollToBottom();
@@ -325,7 +326,7 @@ createApp({
           else if (writtenMessageTrim.includes('come va') || writtenMessageTrim.includes('Come va') || writtenMessageTrim.includes('come stai') || writtenMessageTrim.includes('Come stai') || writtenMessageTrim.includes('come va?') || writtenMessageTrim.includes('Come va?') || writtenMessageTrim.includes('come stai?') || writtenMessageTrim.includes('Come stai?')) this.chats[this.chatActive].messages.push(replyMessageComeVa);
           else if (writtenMessageTrim.includes('che fai') || writtenMessageTrim.includes('Che fai') || writtenMessageTrim.includes('che fai?') || writtenMessageTrim.includes('Che fai?')) this.chats[this.chatActive].messages.push(replyMessageCheFai);
           else this.chats[this.chatActive].messages.push(replyMessage);
-        }, 1100);
+        }, 1000);
         // Scroll automatico verso il basso
         this.scrollToBottomSlow();
       }

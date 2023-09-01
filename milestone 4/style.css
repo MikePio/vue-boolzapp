@@ -16,6 +16,19 @@
   padding-top: 0;
 }
 
+.people-name{
+  margin-top: 3px;
+}
+
+.last-message{
+  margin-top: 6px;
+  font-size: 13px !important;
+}
+
+.last-access{
+  margin-top: 3.5px;
+}
+
 .chat-description-row{
   width: 90%;
 }

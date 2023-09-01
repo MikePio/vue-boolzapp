@@ -65,10 +65,10 @@
 
             <div class="col">
               <div class="row chat-description">
-                <div class="name">{{chat.name}}</div>
+                <div class="name people-name">{{chat.name}}</div>
               </div>
               <div class="row">
-                <div class="description-text">{{chat.messages[chat.messages.length - 1].message}}</div>
+                <div class="description-text last-message">{{chat.messages[chat.messages.length - 1].message}}</div>
               </div>
             </div>
             
@@ -93,7 +93,7 @@
             <img class="image-profile" :src="`img/avatar_${chats[chatActive].img}.jpg`" alt="img-current-chat">
             <div class="col">
               <div class="name">{{chats[chatActive].name}}</div>
-              <div class="description-text">Ultimo accesso oggi alle {{chats[chatActive].messages[chats[chatActive].messages.length - 1].date}}</div>
+              <div class="description-text last-access">Ultimo accesso oggi alle {{chats[chatActive].messages[chats[chatActive].messages.length - 1].date}}</div>
             </div>
           </div>
           <div class="row d-flex justify-content-end align-items-center">
