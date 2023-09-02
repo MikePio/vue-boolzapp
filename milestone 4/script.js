@@ -226,7 +226,37 @@ createApp({
 
   methods: {
     classActive(index) {
-      this.chatActive = index;
+      // Ottiene l'indice corretto delle chat visibili //* CON arrow function
+      // visibleChatsIndexes è un array che contiene gli indici delle chat che soddisfano il criterio di ricerca. Gli indici corrispondono all'array non filtrato di this.chats
+      const visibleChatsIndexes = this.chats
+        // map() utilizzato per creare un nuovo array che contiene gli indici delle chat che soddisfano il criterio di ricerca. La funzione map() itera attraverso ogni chat nell'array this.chats e restituisce l'indice originale della chat se il nome della chat contiene la stringa di ricerca altrimenti restituisce -1
+        .map((chat, originalIndex) => (chat.name.toUpperCase().includes(this.searchString.toUpperCase()) ? originalIndex : -1))
+        // Dopo aver creato l'array con gli indici delle chat che soddisfano il criterio di ricerca, la funzione filter() viene utilizzata per rimuovere tutti gli elementi con valore -1, che rappresentano le chat che non soddisfano il criterio di ricerca. Alla fine di questa operazione, otteniamo un array di indici delle chat visibili
+        .filter(index => index !== -1);
+
+      // Ottiene l'indice corretto delle chat visibili //* senza arrow function
+      // visibleChatsIndexes è un array che contiene gli indici delle chat che soddisfano il criterio di ricerca. Gli indici corrispondono all'array non filtrato di this.chats
+      // const searchStringUpper = this.searchString.toUpperCase();
+      // // map() utilizzato per creare un nuovo array che contiene gli indici delle chat che soddisfano il criterio di ricerca. La funzione map() itera attraverso ogni chat nell'array this.chats e restituisce l'indice originale della chat se il nome della chat contiene la stringa di ricerca altrimenti restituisce -1
+      // const visibleChatsIndexes = this.chats.map(function(chat, originalIndex) {
+      //   if (chat.name.toUpperCase().includes(searchStringUpper)) {
+      //     return originalIndex;
+      //   } else {
+      //     return -1;
+      //   }
+      // // Dopo aver creato l'array con gli indici delle chat che soddisfano il criterio di ricerca, la funzione filter() viene utilizzata per rimuovere tutti gli elementi con valore -1, che rappresentano le chat che non soddisfano il criterio di ricerca. Alla fine di questa operazione, otteniamo un array di indici delle chat visibili
+      // }).filter(function(index) {
+      //   return index !== -1;
+      // });
+    
+      // Imposta activeChat per tutte le chat su false e quindi rimuove la classe active alla chat precedentemente cliccata
+      this.chats.forEach(chat => (chat.activeChat = false));
+    
+      // Imposta activeChat sulla chat selezionata e quindi aggiunge la classe active alla chat appena cliccata
+      if (visibleChatsIndexes[index] !== undefined) {
+        this.chatActive = visibleChatsIndexes[index];
+        this.chats[visibleChatsIndexes[index]].activeChat = true;
+      }
     },
 
     getTime() {
