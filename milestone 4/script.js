@@ -6,6 +6,7 @@ createApp({
       chatActive: 0,
       writtenMessage: '',
       searchString: '',
+      isRecording: false,
       chats: [
         {
           name: 'Michele',
@@ -385,7 +386,17 @@ createApp({
         // });
 
           
-    }
+    },
+
+    toggleRecording() {
+      if (this.isRecording) {
+        // mostra l'icona del microfono
+        this.isRecording = false;
+      } else {
+        // mostra l'icona al quadrato
+        this.isRecording = true;
+      }
+    },
 
   },
 
