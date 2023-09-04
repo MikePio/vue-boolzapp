@@ -120,7 +120,8 @@
         <!-- message-input -->
         <div class="row message-input-row d-flex justify-content-around">
           <i class="fa-regular fa-face-smile"></i>
-          <input v-model="writtenMessage" @keyup.enter="sendMessage" type="text" class="message-input" placeholder="Scrivi un messaggio">
+            <input v-if="!recognition" ref="messageInput" v-model="writtenMessage" @keyup.enter="sendMessage" type="text" class="message-input" placeholder="Scrivi un messaggio">
+            <input v-else-if="recognition" ref="messageInput" v-model="writtenMessage" @keyup.enter="sendMessage" type="text" class="message-input" :placeholder="isRecording ? 'In ascolto...' : 'Scrivi un messaggio'">
           <i @click="toggleRecording" class="fa-solid" :class="isRecording ? 'fa-square' : 'fa-microphone'"></i>
         </div>
   

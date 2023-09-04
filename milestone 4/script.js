@@ -7,6 +7,7 @@ createApp({
       writtenMessage: '',
       searchString: '',
       isRecording: false,
+      recognition: null,
       chats: [
         {
           name: 'Michele',
@@ -389,12 +390,37 @@ createApp({
     },
 
     toggleRecording() {
+      // se sta già registrando
       if (this.isRecording) {
+        // ferma la registrazione
+        this.recognition.stop();
         // mostra l'icona del microfono
         this.isRecording = false;
       } else {
+        // altrimenti, inizia la registrazione e avvia il riconoscimento vocale
+  
+        // inizializza il riconoscimento vocale
+        this.recognition = new webkitSpeechRecognition(); // utilizza webkit per la compatibilità con alcuni browser
+        this.recognition.lang = 'it-IT';
+
+        // inizia il riconoscimento vocale
+        this.recognition.start();
+
         // mostra l'icona al quadrato
         this.isRecording = true;
+  
+        // gestione evento del riconoscimento vocale quando si conclude/si ottengono i risultati
+        this.recognition.onresult = (event) => {
+          const result = event.results[0][0].transcript;
+          this.$refs.messageInput.value = result;
+          this.writtenMessage = result;
+        };
+
+        // gestione evento del riconoscimento vocale quando termina la registrazione
+        this.recognition.onend = () => {
+          // la registrazione è terminata quindi riappare l'icona del microfono
+          this.isRecording = false;
+        };
       }
     },
 
