@@ -295,7 +295,7 @@ body{
 .message-input-row{
   background-color: #F3EEEA;
   padding: 10px;
-  height: 60px;
+  min-height: 60px;
   border-radius: 0 0 5px 0;
 }
 
@@ -318,6 +318,31 @@ body{
 
 .d-none{
   display: none;
+}
+
+.message-input-row{
+  position: relative;
+}
+
+.emoji-picker{
+  /* position: absolute; */
+  /* bottom: 60px; */
+  /* left: 0; */
+  background-color: white;
+  width: fit-content;
+  width: -moz-fit-content;
+  padding: 10px;
+  margin: 0px;
+  max-height: 220px;
+  overflow-y: auto;
+  /* border-radius: 5px 5px 0 0; */
+  /* margin: 5px 10px; */
+}
+
+.emoji-picker *{
+  cursor: pointer;
+  padding: 5px;
+  font-size: 20px;
 }
 
 
