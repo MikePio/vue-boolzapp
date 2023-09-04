@@ -118,7 +118,7 @@
         </div>
 
       <div class="emoji-picker" v-if="showEmojiPicker">
-        <span v-for="emoji in emojiList" :key="emoji" @click="insertEmoji(emoji)">{{ emoji }}</span>
+        <span v-for="emoji in emojiList" :key="emoji" @click="insertEmoji(emoji)" @mousedown="selectEmoji(emoji)" @mouseup="deselectEmoji" :class="{ 'selected-emoji': selectedEmoji === emoji }">{{ emoji }}</span>
         <!-- <span @click="insertEmoji('😀')">😀</span>
         <span @click="insertEmoji('😃')">😃</span>
         <span @click="insertEmoji('😄')">😄</span> -->

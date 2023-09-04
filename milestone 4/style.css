@@ -345,6 +345,10 @@ body{
   font-size: 20px;
 }
 
+.selected-emoji {
+  background-color: #f2f2f2c2;
+  border-radius: 5px;
+}
 
 
 

@@ -9,6 +9,7 @@ createApp({
       isRecording: false,
       recognition: null,
       showEmojiPicker: false, // per mostrare/nascondere il picker delle emoji
+      selectedEmoji: null, // per il background grigio al click di un emoji
       chats: [
         {
           name: 'Michele',
@@ -446,6 +447,16 @@ createApp({
       // chiude il picker delle emoji al click di un emoji
       // this.showEmojiPicker = false;
 
+    },
+
+    // per il background grigio al click di un emoji
+    selectEmoji(emoji) {
+      this.selectedEmoji = emoji;
+    },
+
+    // per rimuovere il background grigio al click di un emoji
+    deselectEmoji() {
+      this.selectedEmoji = null;
     },
 
   },
