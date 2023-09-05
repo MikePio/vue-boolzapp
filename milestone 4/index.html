@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/boolzapp-icon.ico">
   <link rel="stylesheet" href="style.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'/>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.js' integrity='sha512-2zwx0mkoR2cxZY0humPK79YhJYgoX5lT+WNqkgTcV7qhVm3+msjlmOgoXnN1cW2r9qqbZez3XhnLZsyW3k8Wtg==' crossorigin='anonymous'></script>
@@ -19,7 +20,7 @@
         <!-- profilo personale -->
         <div class="row justify-content-between personal-profile">
           <div class="row align-items-center">
-            <img class="image-profile" src="img/avatar_io.jpg" alt="img-profile">
+            <img class="image-profile" src="img1/avatar_io.jpg" alt="img-profile">
             <div class="name">Sofia</div>
           </div>
           <div class="row align-items-center">
@@ -59,7 +60,7 @@
         <!-- <div v-for="(chat, index) in visibleChats" :class="{'active-chat': chatActive == index}" @click="classActive(index)" class="row chat-name name-chat-js"> -->
         <div v-for="(chat, index) in visibleChats" :class="{'active-chat': chat.activeChat}" @click="classActive(index)" class="row chat-name name-chat-js">
           <div class="col">
-            <img class="image-profile" :src="`img/avatar_${chat.img}.jpg`" alt="img-profile-friend">
+            <img class="image-profile" :src="`img1/avatar_${chat.img}.jpg`" alt="img-profile-friend">
           </div>
 
             <div class="row justify-content-between chat-description-row">
@@ -91,7 +92,7 @@
         <!-- BARRA SUPERIORE con nome della chat attuale -->
         <div class="row main-chat d-flex justify-content-between">
           <div class="row">
-            <img class="image-profile" :src="`img/avatar_${chats[chatActive].img}.jpg`" alt="img-current-chat">
+            <img class="image-profile" :src="`img1/avatar_${chats[chatActive].img}.jpg`" alt="img-current-chat">
             <div class="col">
               <div class="name">{{chats[chatActive].name}}</div>
               <div class="description-text last-access">Ultimo accesso oggi alle {{chats[chatActive].messages[chats[chatActive].messages.length - 1].date}}</div>

@@ -398,8 +398,15 @@ createApp({
       if (this.isRecording) {
         // ferma la registrazione
         this.recognition.stop();
+        
         // mostra l'icona del microfono
         this.isRecording = false;
+        
+        // per impostare l'attivazione/il focus sull'input dopo aver aggiunto l'emoji
+        setTimeout(() => {
+          this.$refs.messageInput.focus();
+        }, 0);
+
       } else {
         // altrimenti, inizia la registrazione e avvia il riconoscimento vocale
   
@@ -425,6 +432,11 @@ createApp({
           // la registrazione è terminata quindi riappare l'icona del microfono
           this.isRecording = false;
         };
+        
+        // per impostare l'attivazione/il focus sull'input dopo aver aggiunto l'emoji
+        setTimeout(() => {
+          this.$refs.messageInput.focus();
+        }, 0);
       }
     },
 
@@ -436,8 +448,10 @@ createApp({
       setTimeout(() => {
       this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
         console.log('a capo lento');
-      }, 10);
+      }, 0);
 
+      // per impostare l'attivazione/il focus sull'input dopo aver aggiunto l'emoji
+      this.$refs.messageInput.focus();
     },
     
     insertEmoji(emoji) {
@@ -447,6 +461,8 @@ createApp({
       // chiude il picker delle emoji al click di un emoji
       // this.showEmojiPicker = false;
 
+      // per impostare l'attivazione/il focus sull'input dopo aver aggiunto l'emoji
+      this.$refs.messageInput.focus();
     },
 
     // per il background grigio al click di un emoji
